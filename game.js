@@ -70,8 +70,7 @@ tweet_prop = [
 tweet_body = [
   'production overseas! ',
   'shady dealings. ',
-  'appologizing to me. ',
-  'appologizing. ',
+  'apologizing to me. ',
   'how great I am. ',
   'what a victory I had. ',
   'the state of this economy. ',
