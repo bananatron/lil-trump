@@ -1,43 +1,24 @@
 
+//   .   . p   .                     
+//   | o |     |                     
+//   | . |     |-  ;-. . . ;-.-. ;-. 
+//   | | |     |   |   | | | | | | | 
+//   ' ' '     `-' '   `-` ' ' ' |-' 
+//                               '   
+
 window.playerName = 'liltrump';
 window.happiness = 20;
 window.playing = false;
 window.score = 0;
-
 window.tweets = []; // Store all tweets
 
 colors = ['#674b67', '#4b5667', '#4b6756', '#67664b'];
-
-$('body').css('background-color', getRandFromArr(colors))
-
-var generateTweet = function(){
-
-  var tweet_text = getRandFromArr(tweet_companies) + getRandFromArr(tweet_prep) + getRandFromArr(tweet_prop) + getRandFromArr(tweet_body) + getRandFromArr(tweet_endings)
-  var $tweet = $('.tweet.template').clone();
-  $tweet.find('.tweet-name').text(window.playerName);
-  $tweet.find('.tweet-at').text('@' + window.playerName);
-  $tweet.find('.tweet-body').text(tweet_text);
-
-  $tweet.css('top', getRand(5, 60) + '%');
-  $tweet.css('left', getRand(1, 20) + '%');
-  $tweet.addClass('tweet-new');
-  $('body').append($tweet);
-
-  $tweet.removeClass('template');
-  window.score += 20*window.tweets.length;
-  window.tweets.push($tweet); // Add to global tweets array
-  window.happiness -= 1;
-  checkHappiness();
-}
-
-var removeLastTweet = function(){
-  window.tweets[window.tweets.length-1].remove();
-  window.tweets.pop();
-}
+$('body').css('background-color', getRandFromArr(colors));
 
 
 
-
+// Tweet components
+//
 tweet_companies = [
   'Tesla ',
   'Ford ',
@@ -48,7 +29,8 @@ tweet_companies = [
   'CNN ',
   "Rosie O'Donnell ",
   'NBC ',
-  'The media '
+  'The media ',
+  'H '
 ]
 
 tweet_prep = [
@@ -64,7 +46,8 @@ tweet_prep = [
 tweet_prop = [
   'understand ',
   'admit to ',
-  'think about '
+  'think about ',
+  'see '
 ]
 
 tweet_body = [
@@ -88,11 +71,104 @@ tweet_endings = [
   'Think again!',
   'jobs leaving, ISIS, Ocare, etc.',
   "I'm just the best!",
-  "Oh please!",
-  "Give me a break!"
+  'Oh please!',
+  'Give me a break!',
+  ''
 ];
 
 
+// Game functions
+//
+var generateTweet = function(){
+  var tweet_text = getRandFromArr(tweet_companies) + getRandFromArr(tweet_prep) + getRandFromArr(tweet_prop) + getRandFromArr(tweet_body) + getRandFromArr(tweet_endings)
+  var $tweet = $('.tweet.template').clone();
+  $tweet.find('.tweet-name').text(window.playerName);
+  $tweet.find('.tweet-at').text('@' + window.playerName);
+  $tweet.find('.tweet-body').text(tweet_text);
+
+  $tweet.css('top', getRand(5, 60) + '%');
+  $tweet.css('left', getRand(1, 20) + '%');
+  $tweet.addClass('tweet-new');
+  $('body').append($tweet);
+
+  $tweet.removeClass('template');
+  window.score += 20*window.tweets.length;
+  window.tweets.push($tweet); // Add to global tweets array
+  window.happiness -= 1;
+  checkHappiness();
+};
+
+var removeLastTweet = function(){
+  window.tweets[window.tweets.length-1].remove();
+  window.tweets.pop();
+};
+
+var checkHappiness = function(){
+  if (window.happiness < 10) {
+    $('.trump').addClass('is-angry');
+    $('.trump').removeClass('is-content');
+  } else {
+    $('.trump').addClass('is-content');
+    $('.trump').removeClass('is-angry');
+  }
+
+  if (window.happiness <= 0){
+    window.playing = false;
+    $('#overlay').show();
+  }
+};
+
+var setScore = function(score){
+  $('.score').find('h1').text(score);
+};
+
+var resetGame = function(){
+  $('.trump').removeClass('is-content');
+  $('.trump').removeClass('is-angry');
+  $('.intro').show();
+  $('#overlay').hide();
+  $('.menu').hide();
+
+  window.tweets = [];
+  window.happiness = 20;
+  window.score = 0;
+  setScore(window.score);
+  $('.tweet-new').remove();
+};
+
+
+
+// Game loops
+//
+setInterval(function(){
+  if (window.playing === true) {
+    generateTweet();
+  }
+}, 4000);
+
+setInterval(function(){
+  if (window.playing === true) {
+    window.score += 1;
+    setScore(window.score);
+  }
+}, 200);
+
+
+
+
+// Click handlers
+//
+// Try again end button
+$("#tryagain").on('click', function(){
+  resetGame();
+});
+
+// Tweet button
+$('#tweet').on('click', function(event){
+  generateTweet();
+});
+
+// Hatch to start
 $('#hatch').on('click', function(){
   $('.trump').addClass('is-content');
   $('.trump').addClass('is-centered');
@@ -108,7 +184,7 @@ $('#hatch').on('click', function(){
 });
 
 
-// FEED
+// Feed button
 $('#feed').on('click', function(event) {
 
   if (window.tweets.length === 0) { return; }
@@ -129,74 +205,16 @@ $('#feed').on('click', function(event) {
   }, 1000)
 });
 
-// TWEET
-$('#tweet').on('click', function(event){
-  generateTweet();
-});
 
 
-var checkHappiness = function(){
-  if (window.happiness < 10) {
-    $('.trump').addClass('is-angry');
-    $('.trump').removeClass('is-content');
-  } else {
-    $('.trump').addClass('is-content');
-    $('.trump').removeClass('is-angry');
-  }
-
-  if (window.happiness <= 0){
-    window.playing = false;
-    $('#overlay').show();
-  }
-}
-
-
-
-
-setInterval(function(){
-  if (window.playing === true) {
-    generateTweet();
-  }
-}, 4000);
-
-setInterval(function(){
-  if (window.playing === true) {
-    window.score += 1;
-    setScore(window.score);
-  }
-}, 200);
-
-
-var setScore = function(score){
-  $('.score').find('h1').text(score);
-}
-
-var resetGame = function(){
-  $('.trump').removeClass('is-content');
-  $('.trump').removeClass('is-angry');
-  $('.intro').show();
-  $('#overlay').hide();
-  $('.menu').hide();
-  window.tweets = [];
-  window.happiness = 20;
-  window.score = 0;
-  setScore(window.score);
-  $('.tweet-new').remove();
-
-}
-
-$("#tryagain").on('click', function(){
-  resetGame();
-});
-
-
+// Helpers
 
 var getRand = function(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+};
 
 function getRandFromArr(arr) {
   return arr[Math.floor(Math.random()*arr.length)];
-}
+};
