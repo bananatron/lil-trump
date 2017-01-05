@@ -30,25 +30,32 @@ tweet_companies = [
   "Rosie O'Donnell ",
   'NBC ',
   'The media ',
-  'H '
-]
+  'H ',
+  'Obama ',
+  'Amazon ',
+  'GM ',
+  'Democrats '
+];
 
 tweet_prep = [
   'must ',
   'needs to ',
   'really needs to ',
+  "can't just ",
   'thinks it can just ',
+  "can only ",
   "can't even ",
   "has to, strongly, ",
   "should, painfully, "
-]
+];
 
 tweet_prop = [
   'understand ',
   'admit to ',
   'think about ',
+  'stop weakening ',
   'see '
-]
+];
 
 tweet_body = [
   'production overseas! ',
@@ -58,8 +65,12 @@ tweet_body = [
   'what a victory I had. ',
   'the state of this economy. ',
   'immigration. ',
-  'Ocare. '
-]
+  'Ocare. ',
+  'a global economy. ',
+  'this great country. ',
+  'the huge amount of money I have. ',
+  'how out of conrol they are. '
+];
 
 tweet_endings = [
   'Sad!',
@@ -72,7 +83,14 @@ tweet_endings = [
   'jobs leaving, ISIS, Ocare, etc.',
   "I'm just the best!",
   'Oh please!',
-  'Give me a break!',
+  'Give me a break...',
+  'Weak!',
+  'Smart!',
+  'What a lightweight...',
+  'Tremendous.',
+  'Just terrific!',
+  'ZERO credibility...',
+  '',
   ''
 ];
 
@@ -186,7 +204,6 @@ $('#hatch').on('click', function(){
 
 // Feed button
 $('#feed').on('click', function(event) {
-
   if (window.tweets.length === 0) { return; }
   removeLastTweet();
 
