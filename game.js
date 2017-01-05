@@ -34,7 +34,7 @@ tweet_companies = [
   'Obama ',
   'Amazon ',
   'GM ',
-  'Democrats '
+  'The democratic party '
 ];
 
 tweet_prep = [
