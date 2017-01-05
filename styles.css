@@ -30,7 +30,24 @@ body {
     -ms-interpolation-mode: nearest-neighbor;   /* IE8+ */
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
-    pointer-events: none;
+    transform-origin: bottom left;
+    /*pointer-events: none;*/
+}
+
+.trump.is-egg {
+	background: url('assets/egg_96.png');
+	animation: shaking 4s infinite;
+}
+.trump.is-egg:hover {
+	animation: shaking 1s infinite;
+}
+@keyframes shaking {
+	0% { transform: rotate(0deg) translateX(-51%); }
+	20% { transform: rotate(2deg) translateX(-51%); }
+	40% { transform: rotate(-4deg) translateX(-51%); }
+	60% { transform: rotate(3deg) translateX(-51%); }
+	80% { transform: rotate(-6deg) translateX(-51%); }
+	100% { transform: rotate(0deg) translateX(-51%); }
 }
 
 .trump.is-centered {
@@ -39,9 +56,12 @@ body {
 
 .trump.is-content {
 	background: url('assets/trump_content.gif');
+	pointer-events: none;
 }
 .trump.is-angry {
 	background: url('assets/trump_angry.gif');
+	animation: shaking 1s infinite;
+	pointer-events: none;
 }
 
 .trump.is-giggling {

@@ -143,6 +143,7 @@ var setScore = function(score){
 var resetGame = function(){
   $('.trump').removeClass('is-content');
   $('.trump').removeClass('is-angry');
+  $('.trump').addClass('is-egg');
   $('.intro').show();
   $('#overlay').hide();
   $('.menu').hide();
@@ -188,6 +189,7 @@ $('#tweet').on('click', function(event){
 
 // Hatch to start
 $('#hatch').on('click', function(){
+  $('.trump').removeClass('is-egg');
   $('.trump').addClass('is-content');
   $('.trump').addClass('is-centered');
   if ($('#name').val() == ''){
