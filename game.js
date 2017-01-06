@@ -69,7 +69,7 @@ tweet_body = [
   'a global economy. ',
   'this great country. ',
   'the huge amount of money I have. ',
-  'how out of conrol they are. '
+  'how out of control they are. '
 ];
 
 tweet_endings = [
