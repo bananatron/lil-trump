@@ -147,6 +147,7 @@ var checkHappiness = function(){
   if (window.happiness <= 0){
     window.playing = false;
     $('#overlay').show();
+    $('#donate').show();
   };
 };
 
@@ -162,6 +163,7 @@ var resetGame = function(){
   $('#overlay').hide();
   $('.menu').hide();
   $('#tutorial-pane').hide();
+  $('#donate').hide();
 
   window.tweets = [];
   window.happiness = 20;
@@ -207,10 +209,6 @@ setInterval(function(){
   }
 }, 4000);
 
-setTimeout(function(){
-  showTutorial();
-}, 5500);
-
 setInterval(function(){
   if (window.playing === true) {
     window.score += 1;
@@ -254,6 +252,10 @@ $('#hatch').on('click', function(){
   window.playing = true;
   $('.intro').hide();
   $('.menu').css('display', 'flex');
+
+  setTimeout(function(){
+    showTutorial();
+  }, 5500);
 });
 
 

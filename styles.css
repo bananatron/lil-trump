@@ -250,7 +250,10 @@ body { background-color: #674b67; }
 	background-color: rgba(0, 0, 0, 0.8);
 	z-index: 10;
 }
+#tryagain,
+#hatch { cursor: pointer; }
 
+#donate,
 #tutorial-pane {
 	display: none;
 	width: 92%;
@@ -263,6 +266,8 @@ body { background-color: #674b67; }
 	border: 3px solid black;
 	bottom: 30%;
 }
+#donate { z-index: 100; }
+
 .tutorial-text {
 	padding-right: 1rem;
 }
@@ -275,9 +280,7 @@ body { background-color: #674b67; }
 	color: rgba(0, 0, 0, 0.6);
 }
 
-.is-pulsing {
-	animation: pulse 2s ease-in-out infinite;
-}
+.is-pulsing { animation: pulse 2s ease-in-out infinite; }
 @keyframes pulse {
 	0% { background-color: red; }
 	50% { background-color: yellow; }
