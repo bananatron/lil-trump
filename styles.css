@@ -113,8 +113,8 @@ body { background-color: #674b67; }
 	font-size: calc(14px + 2vw) !important;
 }
 .notification.is-fading {
-	-webkit-animation: fade 2s ease-out forwards;
-	        animation: fade 2s ease-out forwards;
+	-webkit-animation: fade 1s ease-out forwards;
+	        animation: fade 1s ease-out forwards;
 }
 
 @-webkit-keyframes fade {

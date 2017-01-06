@@ -16,7 +16,6 @@ colors = ['#674b67', '#4b5667', '#4b6756', '#67664b'];
 $('body').css('background-color', getRandFromArr(colors));
 
 
-
 // Tweet components
 //
 tweet_companies = [
@@ -87,18 +86,24 @@ tweet_endings = [
   'Weak!',
   'Smart!',
   'What a lightweight...',
-  'Tremendous.',
   'Just terrific!',
   'ZERO credibility...',
   '',
+  '',
   ''
+];
+
+media_phrases = [
+  'MEDIA ATTENTION',
+  'NEWS ARTICLE',
+  'BLOG POST'
 ];
 
 
 // Game functions
 //
 var generateTweet = function(){
-  var tweet_text = getRandFromArr(tweet_companies) + getRandFromArr(tweet_prep) + getRandFromArr(tweet_prop) + getRandFromArr(tweet_body) + getRandFromArr(tweet_endings)
+  var tweet_text = getRandFromArr(tweet_companies) + getRandFromArr(tweet_prep) + getRandFromArr(tweet_prop) + getRandFromArr(tweet_body) + getRandFromArr(tweet_endings);
   var $tweet = $('.tweet.template').clone();
   $tweet.find('.tweet-name').text(window.playerName);
   $tweet.find('.tweet-at').text('@' + window.playerName);
@@ -128,12 +133,12 @@ var checkHappiness = function(){
   } else {
     $('.trump').addClass('is-content');
     $('.trump').removeClass('is-angry');
-  }
+  };
 
   if (window.happiness <= 0){
     window.playing = false;
     $('#overlay').show();
-  }
+  };
 };
 
 var setScore = function(score){
@@ -194,7 +199,7 @@ $('#hatch').on('click', function(){
   $('.trump').addClass('is-centered');
   if ($('#name').val() == ''){
     $('#name').val("Lil' Trump");
-  }
+  };
   window.playerName = $('#name').val();
   $('.trump-name').find('h1').text(window.playerName);
   $('#overlay-name').text(window.playerName);
@@ -214,6 +219,7 @@ $('#feed').on('click', function(event) {
   console.log(window.happiness);
 
   $(event.currentTarget).addClass('is-disabled');
+  $('.media-attention').text('+ ' + getRandFromArr(media_phrases))
   $('.media-attention').show();
   $('.media-attention').addClass('is-fading');
 
@@ -221,13 +227,13 @@ $('#feed').on('click', function(event) {
     $('.media-attention').hide();
     $('.media-attention').removeClass('is-fading');
     $(event.currentTarget).removeClass('is-disabled');
-  }, 1000)
+  }, 1000);
 });
 
 
 
 // Helpers
-
+//
 var getRand = function(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
