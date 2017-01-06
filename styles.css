@@ -97,6 +97,7 @@ body { background-color: #674b67; }
 .notifications {
 	position: fixed;
 	bottom: 100px;
+	padding: 16px;
 	padding: 1rem;
 	width: 100%;
 	width: 100vw;
@@ -118,13 +119,13 @@ body { background-color: #674b67; }
 }
 
 @-webkit-keyframes fade {
-	0% { opacity: 0.6; top: 0; }
-	100% { opacity: 0; top: -80px;}
+	0% { opacity: 0.6; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; top: 0; }
+	100% { opacity: 0; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; top: -80px;}
 }
 
 @keyframes fade {
-	0% { opacity: 0.6; top: 0; }
-	100% { opacity: 0; top: -80px;}
+	0% { opacity: 0.6; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; top: 0; }
+	100% { opacity: 0; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; top: -80px;}
 }
 
 .menu {
@@ -156,6 +157,7 @@ body { background-color: #674b67; }
 .button.is-disabled {
 	pointer-events: none;
 	opacity: 0.5;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
 }
 .menu > .button:first-child {
 	border-right:0;
@@ -242,6 +244,7 @@ body { background-color: #674b67; }
 	display: none;
 	color: white;
 	text-align: center;
+	padding: 112px 0;
 	padding: 7rem 0;
 	top: 0;
 	position: fixed;
@@ -260,7 +263,8 @@ body { background-color: #674b67; }
 	background-color: rgb(216, 218, 191);
 	padding: 10px;
 	left: 50%;
-	transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+	        transform: translateX(-50%);
 	z-index: 9;
 	position: fixed;
 	border: 3px solid black;
@@ -269,6 +273,7 @@ body { background-color: #674b67; }
 #donate { z-index: 100; }
 
 .tutorial-text {
+	padding-right: 16px;
 	padding-right: 1rem;
 }
 .tutorial-close {
@@ -280,7 +285,12 @@ body { background-color: #674b67; }
 	color: rgba(0, 0, 0, 0.6);
 }
 
-.is-pulsing { animation: pulse 2s ease-in-out infinite; }
+.is-pulsing { -webkit-animation: pulse 2s ease-in-out infinite; animation: pulse 2s ease-in-out infinite; }
+@-webkit-keyframes pulse {
+	0% { background-color: red; }
+	50% { background-color: yellow; }
+	100% { background-color: red; }
+}
 @keyframes pulse {
 	0% { background-color: red; }
 	50% { background-color: yellow; }
