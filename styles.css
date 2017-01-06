@@ -250,3 +250,36 @@ body { background-color: #674b67; }
 	background-color: rgba(0, 0, 0, 0.8);
 	z-index: 10;
 }
+
+#tutorial-pane {
+	display: none;
+	width: 92%;
+	background-color: rgb(216, 218, 191);
+	padding: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 9;
+	position: fixed;
+	border: 3px solid black;
+	bottom: 30%;
+}
+.tutorial-text {
+	padding-right: 1rem;
+}
+.tutorial-close {
+	position: absolute;
+	right: 10px;
+	top: 5px;
+	cursor: pointer;
+	font-size: 22px;
+	color: rgba(0, 0, 0, 0.6);
+}
+
+.is-pulsing {
+	animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+	0% { background-color: red; }
+	50% { background-color: yellow; }
+	100% { background-color: red; }
+}

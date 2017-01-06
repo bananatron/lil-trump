@@ -12,6 +12,7 @@ window.playing = false;
 window.score = 0;
 window.tweets = []; // Store all tweets
 
+
 colors = ['#674b67', '#4b5667', '#4b6756', '#67664b'];
 $('body').css('background-color', getRandFromArr(colors));
 
@@ -130,7 +131,15 @@ var checkHappiness = function(){
   if (window.happiness < 10) {
     $('.trump').addClass('is-angry');
     $('.trump').removeClass('is-content');
+    showTutorial();
   } else {
+
+    if ($('.trump').hasClass('is-angry') == true){ // if he's been angry
+      // he's coming down now so show tutorial
+      window.happy_tutorial = false;
+      showTutorial();
+    }
+
     $('.trump').addClass('is-content');
     $('.trump').removeClass('is-angry');
   };
@@ -152,6 +161,7 @@ var resetGame = function(){
   $('.intro').show();
   $('#overlay').hide();
   $('.menu').hide();
+  $('#tutorial-pane').hide();
 
   window.tweets = [];
   window.happiness = 20;
@@ -162,6 +172,33 @@ var resetGame = function(){
 
 
 
+window.tweet_tutorial = false;
+window.media_tutorial = false;
+window.happy_tutorial = true;
+
+var showTutorial = function(){
+  if (window.tweet_tutorial === false){
+    var tutorial_text = "Welp, it looks like " + window.playerName + " is tweeting. Don't worry, he likes tweets - as long as they get attention.";
+    showTutorialPane(tutorial_text);
+    window.tweet_tutorial = true;
+  } else if (window.media_tutorial === false){
+    var tutorial_text = "Uh oh - " + window.playerName + " has posted tweets, but nobody is reading them. Go ahead and use the media button to give him some attention.";
+    $('#feed').addClass('is-pulsing');
+    showTutorialPane(tutorial_text);
+    window.media_tutorial = true;
+  } else if (window.happy_tutorial === false){
+    var tutorial_text = "Ahh, that's better. Try and keep " + window.playerName + " happy as long as you can. Good luck!";
+    showTutorialPane(tutorial_text);
+    window.happy_tutorial = true;
+  }
+};
+var showTutorialPane = function(tutorial_text){
+  $('#tutorial-pane').find('.tutorial-text').text(tutorial_text);
+  $('#tutorial-pane').show();
+}
+
+
+
 // Game loops
 //
 setInterval(function(){
@@ -169,6 +206,10 @@ setInterval(function(){
     generateTweet();
   }
 }, 4000);
+
+setTimeout(function(){
+  showTutorial();
+}, 5500);
 
 setInterval(function(){
   if (window.playing === true) {
@@ -223,8 +264,8 @@ $('#feed').on('click', function(event) {
 
   window.score += 10;
   window.happiness += 1;
-  console.log(window.happiness);
 
+  $(event.currentTarget).removeClass('is-pulsing');
   $(event.currentTarget).addClass('is-disabled');
   $('.media-attention').text('+ ' + getRandFromArr(media_phrases))
   $('.media-attention').show();
@@ -236,6 +277,10 @@ $('#feed').on('click', function(event) {
     $(event.currentTarget).removeClass('is-disabled');
   }, 1000);
 });
+
+$('.tutorial-close').on('click', function(){
+  $('#tutorial-pane').hide();
+})
 
 
 
