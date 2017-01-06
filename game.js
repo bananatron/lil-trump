@@ -1,10 +1,10 @@
 
-//   .   . p   .                     
-//   | o |     |                     
-//   | . |     |-  ;-. . . ;-.-. ;-. 
-//   | | |     |   |   | | | | | | | 
-//   ' ' '     `-' '   `-` ' ' ' |-' 
-//                               '   
+//   .   . p   .
+//   | o |     |
+//   | . |     |-  ;-. . . ;-.-. ;-.
+//   | | |     |   |   | | | | | | |
+//   ' ' '     `-' '   `-` ' ' ' |-'
+//                               '
 
 window.playerName = 'liltrump';
 window.happiness = 20;
@@ -35,6 +35,9 @@ tweet_companies = [
   'Amazon ',
   'GM ',
   'The democratic party '
+  'Jeb'
+  'Crooked Hillary'
+  
 ];
 
 tweet_prep = [
@@ -70,6 +73,9 @@ tweet_body = [
   'this great country. ',
   'the huge amount of money I have. ',
   'how out of control they are. '
+  'terrorists'
+  'bad deals'
+  'how to make deals'
 ];
 
 tweet_endings = [
@@ -89,6 +95,15 @@ tweet_endings = [
   'What a lightweight...',
   'Just terrific!',
   'ZERO credibility...',
+
+  'What a mess...'
+  'Only I can fix it folks!'
+  'Believe me.'
+  'A waste!'
+  'Stop the madness!'
+  'We will win!'
+  'Very unfair.'
+  'Totally dishonest...'
   '',
   '',
   ''
@@ -97,7 +112,9 @@ tweet_endings = [
 media_phrases = [
   'MEDIA ATTENTION',
   'NEWS ARTICLE',
-  'BLOG POST'
+  'BLOG POST',
+  'TABLOID',
+  'PANEL DISCUSSION'
 ];
 
 
