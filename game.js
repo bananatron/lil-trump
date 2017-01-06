@@ -109,8 +109,8 @@ var generateTweet = function(){
   $tweet.find('.tweet-at').text('@' + window.playerName);
   $tweet.find('.tweet-body').text(tweet_text);
 
-  $tweet.css('top', getRand(5, 60) + '%');
-  $tweet.css('left', getRand(1, 20) + '%');
+  $tweet.css('top', getRand(5, 70) + '%');
+  $tweet.css('left', getRand(1, window.innerHeight-500) + 'px');
   $tweet.addClass('tweet-new');
   $('body').append($tweet);
 
@@ -190,6 +190,13 @@ $("#tryagain").on('click', function(){
 // Tweet button
 $('#tweet').on('click', function(event){
   generateTweet();
+});
+
+
+$('#name').keyup(function(e){
+  if(e.keyCode == 13){
+    $('#hatch').click();
+  };
 });
 
 // Hatch to start
