@@ -35,9 +35,8 @@ tweet_companies = [
   'Amazon ',
   'GM ',
   'The democratic party '
-  'Jeb'
-  'Crooked Hillary'
-  
+  'Jeb ',
+  'Crooked Hillary '
 ];
 
 tweet_prep = [
@@ -72,10 +71,10 @@ tweet_body = [
   'a global economy. ',
   'this great country. ',
   'the huge amount of money I have. ',
-  'how out of control they are. '
-  'terrorists'
-  'bad deals'
-  'how to make deals'
+  'how out of control they are. ',
+  'terrorists',
+  'bad deals',
+  'how to make deals',
 ];
 
 tweet_endings = [
