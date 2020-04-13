@@ -34,8 +34,7 @@ tweet_companies = [
   'Obama ',
   'Amazon ',
   'GM ',
-  'The democratic party '
-  'Jeb ',
+  'The democratic party ',
   'Crooked Hillary '
 ];
 
