@@ -71,9 +71,9 @@ tweet_body = [
   'this great country. ',
   'the huge amount of money I have. ',
   'how out of control they are. ',
-  'terrorists',
-  'bad deals',
-  'how to make deals',
+  'terrorists. ',
+  'bad deals!!! ',
+  'how to make deals. ',
 ];
 
 tweet_endings = [
