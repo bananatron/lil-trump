@@ -93,15 +93,14 @@ tweet_endings = [
   'What a lightweight...',
   'Just terrific!',
   'ZERO credibility...',
-
-  'What a mess...'
-  'Only I can fix it folks!'
-  'Believe me.'
-  'A waste!'
-  'Stop the madness!'
-  'We will win!'
-  'Very unfair.'
-  'Totally dishonest...'
+  'What a mess...',
+  'Only I can fix it folks!',
+  'Believe me.',
+  'A waste!',
+  'Stop the madness!',
+  'We will win!',
+  'Very unfair.',
+  'Totally dishonest...',
   '',
   '',
   ''
